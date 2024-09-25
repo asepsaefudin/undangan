@@ -246,7 +246,7 @@
     <p>Kepada Yth.</p>
     <h2 id="guestName" class="great-vibes-regular"> Tamu Undangan</h2>
     <p>Kami mengundang Anda untuk dapat hadir di acara kami</p>
-    <button onclick="openInvitation()">Buka Undangan</button>
+    <button id="btnBukaUndangan" onclick="openInvitation()">Buka Undangan</button>
 </div>
 
 <!-- Isi Undangan -->
@@ -343,7 +343,7 @@
         </p>            
     </div>
 
-    <audio id="myAudio" src="assets/music.mp3" preload="auto"></audio>
+    <audio id="myAudio" src="assets/Download.mp3" preload="auto"></audio>
 
 
     <!-- Corner Images -->
@@ -359,16 +359,12 @@
 <script>
 
     var audio = document.getElementById('myAudio');
-        
-        // Memutar audio otomatis saat halaman dimuat
-        window.onload = function() {
-            audio.play();
-        };
 
     // Function untuk membuka undangan
     function openInvitation() {
         document.getElementById('cover').style.display = 'none';
         document.getElementById('invitation').style.display = 'block';
+        audio.play();
     }
 
     // Function untuk mendapatkan nama dari URL
