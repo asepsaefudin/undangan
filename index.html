@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Khitan Rafasya Zio Septian</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: url('assets/image1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 100;
+            animation: fadeInCover 1s ease-out;
+        }
+
+        @keyframes fadeInCover {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cover h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .cover h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .cover button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #ffc107;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cover button:hover {
+            background-color: #e5a207;
+        }
+
+        .container {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            /* background-color: #28a745; */
+            color: #fff;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .pra-kata img {
+            max-width: 200px;
+            border-radius: 50%;
+            margin: 20px 0;
+        }
+
+        .pra-kata h2 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Awalnya disembunyikan */
+            transform: translateY(50px); /* Animasi awal dari bawah */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+        }
+
+        /* Section akan terlihat saat di-scroll */
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h3 {
+            text-align: center;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .section p, .section li {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 30%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .bank {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+
+        .bank img {
+            max-width: 100px;
+        }
+
+        .bank p {
+            font-size: 18px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 15px;
+        }
+
+        /* Countdown */
+        #countdown {
+            text-align: center;
+            font-size: 28px;
+            color: #dc3545;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        /* Google Maps */
+        .maps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .maps iframe {
+            border: 2px solid #28a745;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 700px;
+            height: 350px;
+        }
+
+        /* Corner Images with Fixed Position */
+        .corner-images img {
+            position: fixed;
+            width: 250px;
+            z-index: 50;
+        }
+
+        .corner-images .top-left { top: 0; left: 0; }
+        .corner-images .top-right { top: 0; right: 0; }
+        .corner-images .bottom-left { bottom: 0; left: 0; }
+        .corner-images .bottom-right { bottom: 0; right: 0; }
+
+        .great-vibes-regular {
+            font-family: "Great Vibes", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+        }
+
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .gallery img {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery img {
+                width: 100%;
+            }
+
+            .cover h1 {
+                font-size: 36px;
+            }
+
+            .cover h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Cover Section -->
+<div class="cover" id="cover">
+    <img src="assets/bismillah.webp" width="150px" alt="Bismillah" class="bismillah">
+    <h1>UNDANGAN</h1>
+    <h2 class="great-vibes-regular">Tasyakuran Khitanan</h2>
+    <p>Kepada Yth.</p>
+    <h2 id="guestName" class="great-vibes-regular"> Tamu Undangan</h2>
+    <p>Kami mengundang Anda untuk dapat hadir di acara kami</p>
+    <button onclick="openInvitation()">Buka Undangan</button>
+</div>
+
+<!-- Isi Undangan -->
+<div class="container" id="invitation">
+    <!-- Header Section -->
+    <div class="header">
+        <!-- <h1>Undangan Khitan</h1> -->
+        <img src="assets/bismillah.webp" width="200px" alt="Bismillah" class="bismillah">
+    </div>
+
+    <!-- Pra Kata Section -->
+    <div class="section pra-kata" style="text-align: center;">
+        <p>Assalamualaikum Wr. Wb.</p>
+        <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan walimatul khitan anak kami:</p>
+        <img src="assets/zio.png" alt="Foto Rafasya Zio Septian">
+        <h2 class="great-vibes-regular">Rafasya Zio Septian</h2>
+        <p>Putra dari Asep Saefudin & Yati Nurhayati</p>
+    </div>
+
+    <!-- Jadwal Acara Section -->
+    <div class="section">
+        <h3 class="great-vibes-regular">Acara</h3>
+        <p>
+            <strong>Hari/Tanggal:</strong><br> Minggu - Senin, 20 - 21 Oktober 2024<br>
+            <strong>Tempat:</strong><br> Blok Rancabolang, Desa Sukamaju, Kec. Lemahsugih, Majalengka<br>
+        </p>
+        <p>
+            <strong>Acara:</strong><br>
+            Senin: Organ DIVA NADA Cirebon
+            Malam Selasa: Siraman Rohani oleh KH. Miftah Faried Tasikmalaya
+            </p>
+
+    </div>
+
+    <!-- Countdown Timer Section -->
+    <div class="section">
+        <h3 class="great-vibes-regular">Hitung Mundur</h3>
+        <div id="countdown"></div>
+    </div>
+
+    <!-- Maps Section -->
+    <div class="section maps">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.2589725014354!2d110.36685711539676!3d-7.795539294374209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a58b4a647dd67%3A0x6859ec314b888e8c!2sMalioboro%20Mall!5e0!3m2!1sid!2sid!4v1648749285912!5m2!1sid!2sid"
+            allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+      <!-- Gallery Section -->
+      <div class="section">
+        <h3 class="great-vibes-regular">Galeri</h3>
+        <div class="gallery">
+            <img src="assets/image1.jpg" alt="Galeri 1">
+            <img src="assets/image2.jpg" alt="Galeri 2">
+            <img src="assets/1.jpg" alt="Galeri 3">
+            <img src="assets/2.jpg" alt="Galeri 4">
+            <img src="assets/3.jpg" alt="Galeri 5">
+            <img src="assets/4.jpg" alt="Galeri 6">
+        </div>
+    </div>
+
+    <!-- Doa Section -->
+    <div class="section">
+        <h3 class="great-vibes-regular">Doa</h3>
+        <p>
+            Ya Allah, berikanlah kami pertolongan untuk memperoleh keutamaan-Mu, serta jauhkan kami dari perbuatan hina. Ya Allah, terimalah khitan kami, selamatkanlah urusan-urusan kami, sembuhkanlah sakit kami karena khitan ini, bayarkanlah utang-utang kami, wujudkanlah cita-cita kami, serta lapangkanlah rezeki kami, wahai Zat Yang Maha Memberi. Ya Allah, semoga Engkau memberikan keselamatan kepada kami, orang-orang yang menunaikan ibadah haji, orang-orang yang berperang di jalan-Mu, serta kepada para musafir, yaitu umat Rasulullah Muhammad Sallallahu Alaihi Wasalam, baik yang ada di darat maupun di laut. Sesungguhnya Engkau berkuasa atas apa yang Engkau kehendaki, wahai sebaik-baik majikan dan sebaik-baik penolong. Maha suci Allah, Tuhan yang memiliki kesucian dan segala sifat rendah yang mereka (orang kafir) sematkan. Dan kesejahteraan bagi para utusan Allah. Segala puji hanya milik Allah, Tuhan Semesta Alam.
+        </p>
+    </div>
+
+
+    <!-- Hadiah Section -->
+    <div class="section">
+        <h3 class="great-vibes-regular">Hadiah</h3>
+        <p>Bagi yang ingin memberikan hadiah, dapat dikirimkan melalui rekening berikut:</p>
+        <div class="bank">
+            <img src="assets/Bank_BJB_logo.svg.png" alt="Logo Bank">
+            <p>
+                Bank BJB<br>
+                No. Rekening: 0111040771100<br>
+                a.n. Yati Nurhayati
+            </p>
+        </div>
+    </div>
+
+    <!-- Penutup Section -->
+    <div class="footer">
+        <strong>Hormat Kami,</strong>
+        <p>ASEP SAEFUDIN, S.Pd. <br>(Guru SDN Kepuh 1)<br>
+            Kel. Bp. H. Ating N (alm) / Ibu Hj. Ocin Mutiah (alm).
+        </p>
+
+            <hr>
+        <p>YATI NURHAYATI, S.Sos <br>(Kaur Keuangan Desa Sukamaju)
+            <br>Kel. Bp. Suhaeri / Ibu Epon.
+        </p>            
+    </div>
+
+    <!-- Corner Images -->
+    <div class="corner-images">
+        <img src="assets/tm-2.webp" alt="Top Left" class="top-left">
+        <!-- <img src="https://via.placeholder.com/100" alt="Top Right" class="top-right">
+        <img src="https://via.placeholder.com/100" alt="Bottom Left" class="bottom-left"> -->
+        <img src="assets/bm-2.webp" alt="Bottom Right" class="bottom-right">
+    </div>
+
+</div>
+
+<script>
+    // Function untuk membuka undangan
+    function openInvitation() {
+        document.getElementById('cover').style.display = 'none';
+        document.getElementById('invitation').style.display = 'block';
+    }
+
+    // Function untuk mendapatkan nama dari URL
+    function getQueryParam(param) {
+        let params = new URLSearchParams(window.location.search);
+        return params.get(param);
+    }
+
+    // Mengambil nama tamu dari URL dan menampilkannya di cover
+    let guestName = getQueryParam('u') || 'Tamu Undangan';
+    document.getElementById('guestName').textContent = decodeURIComponent(guestName.replace(/\+/g, ' '));
+
+    // Countdown Timer
+    let countdownDate = new Date("Oct 20, 2024 08:00:00").getTime();
+    let countdownFunction = setInterval(function() {
+        let now = new Date().getTime();
+        let distance = countdownDate - now;
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerHTML = days + " hari " + hours + " jam " + minutes + " menit " + seconds + " detik ";
+
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById('countdown').innerHTML = "Acara telah dimulai!";
+        }
+    }, 1000);
+
+    // Intersection Observer untuk animasi saat scroll
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+</script>
+
+</body>
+</html>
