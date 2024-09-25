@@ -343,6 +343,9 @@
         </p>            
     </div>
 
+    <audio id="myAudio" src="assets/music.mp3" preload="auto"></audio>
+
+
     <!-- Corner Images -->
     <div class="corner-images">
         <img src="assets/tm-2.webp" alt="Top Left" class="top-left">
@@ -354,6 +357,14 @@
 </div>
 
 <script>
+
+    var audio = document.getElementById('myAudio');
+        
+        // Memutar audio otomatis saat halaman dimuat
+        window.onload = function() {
+            audio.play();
+        };
+
     // Function untuk membuka undangan
     function openInvitation() {
         document.getElementById('cover').style.display = 'none';
